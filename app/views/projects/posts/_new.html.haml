@@ -1,0 +1,13 @@
+= form_for Post.new, :html => {multipart: true} do |f|
+  .field
+    = f.text_field :title, placeholder: "Title"
+  .field
+    = f.text_area :message, rows: 4, style: 'width: 30%;', placeholder: "Type your message..."
+  .field
+    = f.text_area :attachment, rows: 1, style: 'width: 30%;', placeholder: "Paste your attachment..."
+
+    = f.hidden_field :project_id, value: @project.id
+    = f.hidden_field :phase_id, value: params[:phase]
+
+  .actions
+    = f.submit 'Upload'

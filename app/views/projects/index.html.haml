@@ -1,0 +1,20 @@
+%h1 Active Projects
+
+= link_to 'New Project', new_project_path
+
+%table
+  %tr
+    %th Name
+    %th Last updated
+    %th
+    %th
+    %th
+
+  - @projects.each do |project|
+    %tr
+      %td
+        = link_to project.name, project_url(project.id)
+        = "(#{project.phase.name})"
+      %td= project.updated_at.strftime("%m/%d/%y at %I:%M%P")
+
+
