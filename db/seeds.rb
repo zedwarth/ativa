@@ -12,14 +12,14 @@ Post.destroy_all
 User.destroy_all
 
 users = [
-  {first_name: "Bat", user_name: 'batman', profile_pic: 'https://s3.amazonaws.com/mks_learn_app/batman.jpg'},
-  {first_name: "Cat", user_name: 'catwoman', profile_pic: 'https://s3.amazonaws.com/mks_learn_app/catwoman.jpg'}
+  {name: "Batman", email: 'batman@themakersquare.com', profile_pic: 'https://s3.amazonaws.com/mks_learn_app/batman.jpg'},
+  {name: "Catwoman", email: 'catwoman@themakersquare.com', profile_pic: 'https://s3.amazonaws.com/mks_learn_app/catwoman.jpg'}
 ]
 
 users.each do |user|
   User.create(
-    first_name: user[:first_name],
-    user_name: user[:user_name],
+    name: user[:name],
+    email: user[:email],
     password: 'password',
     profile_pic: user[:profile_pic]
   )

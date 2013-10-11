@@ -6,7 +6,7 @@
   .row
     .large-2.columns
       = image_tag post.user.profile_pic
-      %p= post.user.first_name
+      %p= post.user.name
     .large-10.columns
       %b= link_to post.title, project_url(@project.id, page: 'show', phase: @show_phase.name, post_id: post.id)
       %small= post.updated_at.strftime("%m/%d/%y at %I:%M%P")
