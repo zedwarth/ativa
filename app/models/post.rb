@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :phase
   belongs_to :project
+  belongs_to :user
   default_scope order('created_at DESC')
   before_save :set_defaults
 

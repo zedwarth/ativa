@@ -2,15 +2,20 @@
 
 %h1= @project.name
 
-%ul.disc
-  %b Phases
-  - phases.each do |phase|
-    %li
-      = phase.capitalize
-      - if phase == @project.phase.name 
-        =link_to "#{phase.capitalize}<--", project_url(@project.id, phase: phase)
-      - else
-        = link_to phase.capitalize, project_url(@project.id, phase: phase)
+
+.row
+  .large-1.columns
+  .large-2.columns.large-offset-1
+    %ul.disc
+      %b Phases
+      - phases.each do |phase|
+        %li
+          - if phase == @project.phase.name 
+            =link_to "#{phase.capitalize}<--", project_url(@project.id, phase: phase)
+          - else
+            = link_to phase.capitalize, project_url(@project.id, phase: phase)
+  .large-5.columns
+
 %br
 %br
 

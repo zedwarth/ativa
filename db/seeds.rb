@@ -8,6 +8,22 @@
 
 Project.destroy_all
 Phase.destroy_all
+Post.destroy_all
+User.destroy_all
+
+users = [
+  {first_name: "Bat", user_name: 'batman', profile_pic: 'https://s3.amazonaws.com/mks_learn_app/batman.jpg'},
+  {first_name: "Cat", user_name: 'catwoman', profile_pic: 'https://s3.amazonaws.com/mks_learn_app/catwoman.jpg'}
+]
+
+users.each do |user|
+  User.create(
+    first_name: user[:first_name],
+    user_name: user[:user_name],
+    password: 'password',
+    profile_pic: user[:profile_pic]
+  )
+end
 
 phases = ['onboarding','creative', 'design', 'development', 'implementation']
 
@@ -52,7 +68,8 @@ Project.all.each do |project|
         attachment: attachments[rand(4)],
         title: "#{phase.name.capitalize} Revision #{num + 1}",
         project_id: project.id,
-        phase_id: phase.id
+        phase_id: phase.id,
+        user_id: User.first.id
       )
     end
   end
