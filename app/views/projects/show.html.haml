@@ -1,17 +1,18 @@
 %p#notice= notice
 
 %h1= @project.name
-%p
-  Current Phase:
-  %b= "#{@project.phase.name.capitalize} Phase"
 
+%ul.disc
+  %b Phases
+  - phases.each do |phase|
+    %li
+      = phase.capitalize
+      - if phase == @project.phase.name 
+        =link_to "#{phase.capitalize}<--", project_url(@project.id, phase: phase)
+      - else
+        = link_to phase.capitalize, project_url(@project.id, phase: phase)
+%br
+%br
 
-%b= @show_phase.name.capitalize + " Phase"
-= link_to 'add post', project_url(@project.id, page: 'new', phase: @show_phase.name)
 
 = render "projects/posts/#{@page}"
-
-
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'Back', projects_path

@@ -10,13 +10,24 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @show_phase = @project.phase
-    if params[:phase] then @show_phase = Phase.find_by_name(params[:phase]) end
+
     
-    @page = 'index'
-    if params[:page] then @page = params[:page] end
+    if params[:phase] 
+      @show_phase = Phase.find_by_name(params[:phase]) 
+    else
+      @show_phase = @project.phase
+    end
+    
+    
+    if params[:page]
+      @page = params[:page]
+    else
+      @page = 'index'
+    end
 
     @posts = @project.posts.where(phase_id: @show_phase.id)
+
+    if params[:post_id] then @post = Post.find(params[:post_id]) end
   end
 
   # GET /projects/new

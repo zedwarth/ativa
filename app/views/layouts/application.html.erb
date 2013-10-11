@@ -8,8 +8,14 @@
 </head>
 <body>
 
-<%= link_to 'Home', root_url %>
-<%= yield %>
+  <div class="row">
+    <div class="large-1 columns"></div>
+    <div class="large-11 columns">
+      <%= link_to 'Home', root_url %>
+      <%= yield %>
+    </div>
+    <div class="large-11 columns"></div>
+  </div>
 
 </body>
 </html>
