@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
     def set_defaults
       if self.title == "" then self.title = "Post #{rand(255)}" end
       if self.message == "" then self.message = "(no message)" end
+      self.user_id = User.first.id + rand(0..1)
       # @attachment ||= "https://s3.amazonaws.com/mks_learn_app/mks-startupcrawl-card-front.png"
     end
 

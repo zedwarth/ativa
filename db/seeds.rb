@@ -36,9 +36,10 @@ projects = [
   'GameStarter',
   'Prepify',
   'Mission Impossible',
-  'Bring Up',
-  'Harsh on Internet',
-  'Matt is Better',
+  'Humppp Day',
+  'FreqShow',
+  'MikeMikeMike',
+  'iDiningDeals',
   'MakerSquare'
 ]
 
@@ -46,30 +47,44 @@ projects.each do |project|
   Project.create(name: project, phase_id: Phase.first.id)
 end
 
-messages = [
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod."
-]
+posts = [
+  {
+    title: "Search Results",
+    message: "Once a user searches for a restaurant, we want the results to look like Google. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
+    attachment: "https://ativa.s3.amazonaws.com/uploads/attachment/file/138/1.5-Search-Results.jpg"
+  },
+  {
+    title: "Create Sign In Page",
+    message: "Create a sign in page that allows native sign in or the use of Facebook or Twitter. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
+    attachment: "https://ativa.s3.amazonaws.com/uploads/attachment/file/88/1_Home_with_Sign_In.pdf"
+  },
+  {
+    title: "Homepage",
+    message: "The home page should be nice and simple. It would be nice if the page looked similar to AirBnB. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
+    attachment: "https://ativa.s3.amazonaws.com/uploads/post/attachment/173/iDiningDeals_Front_End_Wire_Frames.pdf"
+  },
+  {
+    title: "Schedule",
+    message: "We have strict schedule outlined for the project. It should take 3 months in total if we stay on pace. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
+    attachment: "https://ativa.s3.amazonaws.com/uploads/attachment/file/62/PSD_Calendar-_iDiningDeals.pdf"
+  },
+  {
+    title: "Create Sign In Page",
+    message: "Create a sign in page that allows native sign in or the use of Facebook or Twitter. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
+    attachment: "https://ativa.s3.amazonaws.com/uploads/attachment/file/88/1_Home_with_Sign_In.pdf"
+  }
 
-attachments = [
-  "http://www.cran.r-project.org/doc/manuals/R-intro.pdf",
-  "http://www.cran.r-project.org/doc/manuals/R-intro.pdf",
-  "http://www.cran.r-project.org/doc/manuals/R-intro.pdf",
-  "http://www.cran.r-project.org/doc/manuals/R-intro.pdf"
 ]
-
 Project.all.each do |project|
   Phase.all.each do |phase|
-    10.times do |num|
+    posts.each do |post|
       Post.create(
-        message: messages[rand(4)],
-        attachment: attachments[rand(4)],
-        title: "#{phase.name.capitalize} Revision #{num + 1}",
+        message: post[:message],
+        attachment: post[:attachment],
+        title: post[:title],
         project_id: project.id,
         phase_id: phase.id,
-        user_id: User.first.id
+        user_id: User.first.id + rand(0..1)
       )
     end
   end
