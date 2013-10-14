@@ -1,0 +1,4 @@
+Remove from day 2 start
+
+
+- multipart in form_for on projects/posts/new
