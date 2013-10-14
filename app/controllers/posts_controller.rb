@@ -26,7 +26,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.phase_id = Phase.find_by_name(params[:post][:phase_id]).id
-binding.pry
     respond_to do |format|
       if @post.save
         format.html { redirect_to project_url(@post.project_id, phase: @post.phase.name), notice: 'Post was successfully created.' }
