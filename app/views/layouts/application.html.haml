@@ -23,10 +23,8 @@
           |
           = link_to "Sign in", new_user_session_path
         
-        - if notice
-          %p.notice= notice
-        - if alert
-          %p.alert= alert
+        %p.notice= notice unless notice.blank?
+        %p.alert= alert unless alert.blank?
 
         = yield
       .large-11.columns
