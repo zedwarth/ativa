@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
     else
       @page = 'index'
     end
-
+  
     @posts = @project.posts.where(phase_id: @show_phase.id)
 
     if params[:post_id] then @post = Post.find(params[:post_id]) end

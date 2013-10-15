@@ -9,6 +9,16 @@ gem 'rails', '4.0.0'
 
 gem 'carrierwave'
 
+gem 'rmagick'
+
+gem 'pry'
+
+gem "fog", "~> 1.3.1"
+
+group :development do 
+	gem 'figaro'
+end
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
