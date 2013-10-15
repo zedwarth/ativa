@@ -1,12 +1,14 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:destroy]
+  before_action :set_project
 
   def create
-    @subscription = current_user.subscriptions.build(project_id: params[:project_id])
+    @subscription = current_user.subscriptions.build(project_id: @project.id)
 
     respond_to do |format|
       if @subscription.save
-        format.html { redirect_to project_path(params[:project_id]), notice: 'You are now subscribed to this project.' }
+        Notifier.subscription_confirmation(current_user, @project).deliver
+        format.html { redirect_to project_path(@project.id), notice: 'You are now subscribed to this project.' }
       else
         format.html { render action: 'show', alert: 'Your subscription could not be processed.' }
       end
@@ -16,7 +18,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     @subscription.destroy
     respond_to do |format|
-      format.html { redirect_to project_path(params[:project_id]), notice: 'You are now unsubscribed from this project.' }
+      format.html { redirect_to project_path(@project.id), notice: 'You are now unsubscribed from this project.' }
       format.json { head :no_content }
     end
   end
@@ -25,5 +27,9 @@ class SubscriptionsController < ApplicationController
 
     def set_subscription
       @subscription = Subscription.find(params[:id])
+    end
+
+    def set_project
+      @project = Project.find(params[:project_id])
     end
 end

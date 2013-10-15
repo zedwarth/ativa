@@ -1,3 +1,5 @@
-= @greeting + ", find me in app/views/notifier/subscription_confirmation.text.haml"
-
-= "What if we add 2+2 and the email has the result: #{2+2}"
+%p= "Hello #{@user.name},"
+%p= "You have been subscribed to the #{@project.name.capitalize} project at Ativa."
+%br
+%p Thank you,
+%p The Ativa team
