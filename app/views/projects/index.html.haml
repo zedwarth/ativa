@@ -3,11 +3,12 @@
   %small= link_to 'New Project', new_project_path
 
 .row
-  .large-8.large-centered.columns
+  .large-9.large-centered.columns
     %table
       %thead
         %tr
           %th Name
+          %th Subscribed
           %th Last updated
           %th
           %th
@@ -17,6 +18,7 @@
             %td
               = link_to project.name, project_url(project.id)
               = "(#{project.phase.name})"
+            %td.text-center= "✓" unless current_user.subscriptions.where(project_id: project.id).blank?
             %td= project.updated_at.strftime("%m/%d/%y at %I:%M%P")
             %td= link_to 'Edit', edit_project_path(project.id)
             %td= link_to 'Destroy', project_path(project.id), method: :delete, data: { confirm: 'Are you sure?' }
