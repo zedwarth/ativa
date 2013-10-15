@@ -26,7 +26,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.phase_id = Phase.find_by_name(params[:post][:phase_id]).id
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to project_url(@post.project_id, phase: @post.phase.name), notice: 'Post was successfully created.' }
@@ -70,6 +69,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :message, :attachment, :phase_id, :project_id)
+      params.require(:post).permit(:title, :message, :attachment, :phase_id, :project_id, :user_id)
     end
 end
