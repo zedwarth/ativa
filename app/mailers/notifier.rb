@@ -6,7 +6,25 @@ class Notifier < ActionMailer::Base
     @project = project
 
     # Change the 'to:' section to your partner's name and email
-    mail( to: "Partner-name <ricardo@themakersquare.com>",
+    mail( to: "#{user.name} <#{user.email}>",
           subject: "Subscribed to #{project.name.capitalize} | Ativa")
+  end
+
+  def subscription_cancellation(user, project)
+    @user = user
+    @project = project
+
+    # Change the 'to:' section to your partner's name and email
+    mail( to: "#{user.name} <#{user.email}>",
+          subject: "Unsubscribed from #{project.name.capitalize} | Ativa")
+  end
+
+  def new_post(post, recipient)
+    @post = post
+    @project = post.project
+    @recipient = recipient
+
+    mail( to: "#{recipient.name} <#{recipient.email}>",
+          subject: "New post on #{post.project.name.capitalize} | Ativa")
   end
 end

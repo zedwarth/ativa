@@ -10,13 +10,14 @@ class SubscriptionsController < ApplicationController
         Notifier.subscription_confirmation(current_user, @project).deliver
         format.html { redirect_to project_path(@project.id), notice: 'You are now subscribed to this project.' }
       else
-        format.html { render action: 'show', alert: 'Your subscription could not be processed.' }
+        format.html { redirect_to project_path(@project.id), alert: 'Your subscription could not be processed.' }
       end
     end
   end
 
   def destroy
     @subscription.destroy
+    Notifier.subscription_cancellation(current_user, @project).deliver
     respond_to do |format|
       format.html { redirect_to project_path(@project.id), notice: 'You are now unsubscribed from this project.' }
       format.json { head :no_content }

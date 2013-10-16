@@ -1,0 +1,9 @@
+%p= "Hello #{@recipient.name.capitalize},"
+%p= "A new post has been made on the #{@project.name.capitalize} project at Ativa:"
+%blockquote
+  %h3= @post.title
+  %p= @post.message
+  %cite= "- " + @post.user.name.capitalize
+%br
+%p Thank you,
+%p The Ativa team
