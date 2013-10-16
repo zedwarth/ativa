@@ -23,8 +23,9 @@ class ProjectsController < ApplicationController
       @page = 'index'
     end
 
-    @posts = @project.posts.where(phase_id: @show_phase.id)
     @subscription = current_user.subscriptions.build(project_id: :id)
+    @posts = @project.posts.where(phase_id: @show_phase.id)
+    @post = Post.new
 
     if params[:post_id] then @post = Post.find(params[:post_id]) end
   end
