@@ -16,7 +16,9 @@ gem 'pry'
 
 gem "fog", "~> 1.3.1"
 
-group :development do 
+gem 'zurb-foundation'
+
+group :development do
 	gem 'figaro'
 end
 
