@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 # Use HAML
 gem 'haml-rails'
 gem 'haml'
