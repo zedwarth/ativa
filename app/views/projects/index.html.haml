@@ -1,14 +1,11 @@
 .row
-  %h1.large-12.columns.text-center
+  %h1.large-12.columns
     Active Projects
 
 %table
   %tr
     %th Name
     %th Last updated
-    %th
-    %th
-    %th
 
   - @projects.each do |project|
     %tr
@@ -20,4 +17,3 @@
 .row
   .large-12.columns
     = link_to 'New Project', new_project_path, class: ['button', 'small']
-
