@@ -4,22 +4,22 @@
     -# Set the viewport width to device width for mobile
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
     %title Ativa
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
   %body
-    %div.contain-to-grid
-      %nav.top-bar
-        %ul.title-area
-          %li.name
-            %h1
-              = link_to 'Ativa', root_url
-        %section.top-bar-section
-          %ul.right
-            %li
-              = link_to 'My Account', user_url(User.last.id)
-            %li.toggle-topbar
-              %a{href: '#'}
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            = link_to 'Ativa', root_url
+        %li.toggle-topbar.menu-icon
+          %a{href: '#'}
+            %span Menu
+      %section.top-bar-section
+        %ul.right
+          %li
+            = link_to 'My Account', user_url(User.last.id)
     .row
       .large-12.columns
         %p.notice= notice
@@ -27,4 +27,5 @@
     .row
       .large-12.columns
         = yield
+
         = javascript_include_tag "application"
