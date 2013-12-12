@@ -1,22 +1,24 @@
-%h1.text-center
-  Active Projects
-  %small= link_to 'New Project', new_project_path
+.row
+  %h1.large-12.columns
+    Active Projects
 
 .row
-  .large-8.large-centered.columns
-    %table
-      %thead
-        %tr
-          %th Name
-          %th Last updated
-          %th
-          %th
-      %tbody
-        - @projects.each do |project|
-          %tr
-            %td
-              = link_to project.name, project_url(project.id)
-              = "(#{project.phase.name})"
-            %td= project.updated_at.strftime("%m/%d/%y at %I:%M%P")
-            %td= link_to 'Edit', edit_project_path(project.id)
-            %td= link_to 'Destroy', project_path(project.id), method: :delete, data: { confirm: 'Are you sure?' }
+  %table.large-12.large-centered.columns
+    %tr
+      %th Name
+      %th Last updated
+      %th
+      %th
+
+    - @projects.each do |project|
+      %tr
+        %td
+          = link_to project.name, project_url(project.id)
+          = "(#{project.phase.name})"
+        %td= project.updated_at.strftime("%m/%d/%y at %I:%M%P")
+        %td= link_to 'Edit', edit_project_path(project.id)
+        %td= link_to 'Destroy', project_path(project.id), method: :delete, data: { confirm: 'Are you sure?' }
+.row
+  .large-12.columns.large-centered
+    = link_to 'New Project', new_project_path, class: ['button', 'small']
+
