@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 # Use HAML
 gem 'haml-rails'
 gem 'haml'
@@ -33,8 +35,6 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-gem 'devise'
 
 group :test, :development do
   gem 'pry-plus'
