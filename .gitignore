@@ -16,6 +16,8 @@
 /tmp
 
 # Ignore file uploads
+vendor/bundle
 public/uploads
+
 # Ignore application configuration
 /config/application.yml

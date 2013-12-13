@@ -1,4 +1,10 @@
-= form_for Post.new do |f|
+= form_for [@project, @post], :html => {multipart: true} do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
   .row
     .large-6.columns
       .field
@@ -10,8 +16,9 @@
       .field
         = f.file_field :attachment, rows: 1, style: 'width: 90%;', placeholder: "Paste your attachment..."
 
+        = f.hidden_field :phase_id, value: @phase.id
         = f.hidden_field :project_id, value: @project.id
-        = f.hidden_field :phase_id, value: params[:phase]
+        = f.hidden_field :user_id, value: current_user.id
 
       .actions
         = f.submit 'Upload'
