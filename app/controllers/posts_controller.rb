@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_instance_variables, only: [:show, :edit, :update, :destroy]
+  before_action :set_instance_variables, only: [:show, :edit]
 
   def show
   end
@@ -28,9 +28,10 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to project_post_path(@post.project_id, @post, phase_id: @post.phase_id), notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
