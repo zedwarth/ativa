@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to project_path(@post.project_id, phase_id: @post.phase_id), notice: 'Post was successfully created.' }
