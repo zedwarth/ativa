@@ -10,7 +10,7 @@
   - @projects.each do |project|
     %tr
       %td
-        = link_to project.name, project_url(project.id)
+        = link_to project.name, project_path(project)
         = "(#{project.phase.name})"
       %td= project.updated_at.strftime("%m/%d/%y at %I:%M%P")
 
