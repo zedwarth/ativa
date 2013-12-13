@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'carrierwave'
 gem 'devise'
+gem 'rmagick'
 
 # Use HAML
 gem 'haml-rails'

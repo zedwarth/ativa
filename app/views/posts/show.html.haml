@@ -8,4 +8,4 @@
 - if @post.attachment == ""
   no attachment available
 -else
-  %img{src: @post.attachment}
+  %img{src: @post.attachment_url(:medium)}
