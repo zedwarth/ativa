@@ -1,35 +1,25 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_instance_variables, only: [:show, :edit, :update, :destroy]
 
-  # GET /posts
-  # GET /posts.json
-  def index
-    @posts = Post.all
-  end
-
-  # GET /posts/1
-  # GET /posts/1.json
   def show
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
+    @project = Project.find(params[:project_id])
+    @phase = Phase.find(params[:phase_id])
   end
 
-  # GET /posts/1/edit
   def edit
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.phase_id = Phase.find_by_name(params[:post][:phase_id]).id
+    @post.project_id = params[:project_id]
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to project_url(@post.project_id, phase: @post.phase.name), notice: 'Post was successfully created.' }
+        format.html { redirect_to project_path(@post.project_id, phase_id: @post.phase_id), notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -38,8 +28,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -52,8 +40,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
@@ -64,12 +50,14 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
+    def set_instance_variables
       @post = Post.find(params[:id])
+      @project = Project.find(params[:project_id])
+      @phase = Phase.find(params[:phase_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :message, :attachment, :phase_id, :project_id)
+      params.require(:post).permit(:title, :message, :attachment, :phase_id)
     end
 end
