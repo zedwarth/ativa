@@ -15,7 +15,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.project_id = params[:project_id]
 
     respond_to do |format|
       if @post.save
@@ -58,6 +57,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :message, :attachment, :phase_id)
+      params.require(:post).permit(:title, :message, :attachment, :phase_id, :project_id)
     end
 end
