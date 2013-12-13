@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'carrierwave'
 gem 'devise'
 gem 'rmagick'
+gem 'figaro'
 
 # Use HAML
 gem 'haml-rails'
