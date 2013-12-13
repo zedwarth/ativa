@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+
 # Use HAML
 gem 'haml-rails'
 gem 'haml'
