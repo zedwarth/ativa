@@ -22,10 +22,6 @@
             = link_to 'My Account', user_url(User.last.id)
     .row
       .large-12.columns
-        %p.notice= notice
-        %p.alert= alert
-    .row
-      .large-12.columns
         = yield
 
         = javascript_include_tag "application"
