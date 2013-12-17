@@ -1,0 +1,11 @@
+=render partial: 'layouts/projects'
+
+%h2= @post.title
+= link_to 'Edit', edit_project_post_path(@project, @post, phase_id: @phase), class: [:small, :button]
+
+= link_to 'Back', project_path(@project, phase_id: @phase), class: [:small, :button]
+%p= @post.message
+- if @post.attachment == ""
+  no attachment available
+-else
+  %img{src: @post.attachment_url(:medium)}

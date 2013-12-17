@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "ricardo@themakersquare.com" # Change this to your email
+  default from: "from@example.com"
 
   def subscription_confirmation(user, project)
     @user = user

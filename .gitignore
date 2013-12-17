@@ -14,9 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-vendor/bundle
 
 # Ignore file uploads
+vendor/bundle
 public/uploads
 
 # Ignore application configuration
