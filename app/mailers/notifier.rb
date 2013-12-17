@@ -6,9 +6,12 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.subscription_confirmation.subject
   #
-  def subscription_confirmation
-    @greeting = "Hi"
+  def subscription_confirmation(user, project)
+    @user = user
+    @project = project
 
-    mail to: "to@example.org"
+    # Change the 'to:' section to your partner's name and email
+    mail( to: "#{user.name} <#{user.email}>",
+          subject: "Subscribed to #{project.name.capitalize} | Ativa")
   end
 end
