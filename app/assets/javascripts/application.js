@@ -15,4 +15,4 @@
 //= require foundation
 //= require projects
 
-$(function(){ $(document).foundation(); });
+$(document).foundation();
