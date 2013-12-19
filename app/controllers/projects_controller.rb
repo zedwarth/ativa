@@ -11,9 +11,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @subscription = current_user.subscriptions.build(project_id: :id)
-    @posts = @project.posts.where(phase_id: @show_phase.id)
-    @post = Post.new
-
     @phase = params[:phase_id] ? Phase.find(params[:phase_id]) : @project.phase
     @posts = @project.posts.where(phase_id: @phase.id)
   end
