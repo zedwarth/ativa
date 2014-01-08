@@ -1,5 +1,5 @@
 %h1
-  = @projects.name
+  = @project.name
   - if @project.users.include?(current_user)
     %small= link_to "Unsubscribe", project_subscription_path(project_id: @project.id, id: current_user.subscriptions.where(project_id: @project.id).first), method: :delete
   - else
