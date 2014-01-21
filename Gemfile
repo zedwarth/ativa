@@ -36,8 +36,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'devise'
-
 group :test, :development do
   gem 'pry-plus'
   gem 'pry-rails'

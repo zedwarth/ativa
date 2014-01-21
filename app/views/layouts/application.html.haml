@@ -20,7 +20,7 @@
         %ul.right
           -if user_signed_in?
             %li
-              = link_to 'My Account', user_url(User.last.id)
+              = link_to 'My Account', user_url(current_user)
             %li
               = link_to 'Edit Profile', edit_user_registration_path
             %li
